@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,6 +18,7 @@ namespace RailwayStationSample
 
         [Header("Objects")]
         public GameObject TrainObject;
+        public TMP_Text CountText;
 
         [Header("State Durations")] 
         public float MoveInDuration = 4f;
@@ -36,6 +38,7 @@ namespace RailwayStationSample
         private void Reset()
         {
             TrainObject = GetComponentInChildren<Renderer>().transform.parent.gameObject;
+            CountText = GetComponentInChildren<TMP_Text>();
         }
 
         private void Update()
@@ -78,6 +81,8 @@ namespace RailwayStationSample
 
             RaiseEvents();
             _prevState = State;
+
+            CountText.text = $"{Passengers} / {MaxPassengers}";
         }
 
         private void RaiseEvents()
