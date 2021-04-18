@@ -12,6 +12,8 @@ namespace RailwayStationSample
         
         public float Weight;
 
+        public event Action<Character> OnCharacterReached;
+
         private void OnValidate()
         {
             if (Weight < 0)
@@ -30,6 +32,11 @@ namespace RailwayStationSample
             ActiveAnchors.Remove(this);
         }
 
+        public void Raise(Character sender)
+        {
+            OnCharacterReached?.Invoke(sender);
+        }
+        
         public static Anchor GetRandomAnchor(bool useWeights = true)
         {
             if (!useWeights)

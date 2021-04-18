@@ -53,18 +53,25 @@ namespace RailwayStationSample
         {
             if (!_isActive)
             {
+                if (IsFinished())
+                {
+                    Destroy(gameObject);
+                }
+                
                 return;
+            }
+
+            if (_cooldownTime <= 0 || TargetAnchor != null && !TargetAnchor.enabled)
+            {
+                _cooldownTime = Random.Range(MinChangeTargetWaitingDuration, MaxChangeTargetWaitingDuration);
+                SetRandomTargetAnchor();
             }
             
             if (IsFinished())
             {
                 _cooldownTime -= Time.deltaTime;
-            }
-
-            if (_cooldownTime <= 0)
-            {
-                _cooldownTime = Random.Range(MinChangeTargetWaitingDuration, MaxChangeTargetWaitingDuration);
-                SetRandomTargetAnchor();
+                TargetAnchor?.Raise(this);
+                TargetAnchor = null;
             }
         }
 
