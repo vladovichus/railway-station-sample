@@ -14,17 +14,17 @@ namespace RailwayStationSample
         private int _nameIndexCounter;
         
         [ContextMenu("Spawn")]
-        public void Spawn()
+        public void SpawnRandomCharacters()
         {
             int spawnCount = Random.Range(MinSpawnCount, MaxSpawnCount);
 
             for (int i = 0; i < spawnCount; i++)
             {
-                SpawnCharacter();   
+                SpawnOneCharacter();   
             }
         }
 
-        private void SpawnCharacter()
+        public void SpawnOneCharacter()
         {
             GameObject go = Instantiate(CharacterPrefab, transform.position, Quaternion.identity);
 
