@@ -17,6 +17,7 @@ namespace RailwayStationSample
 
         [Header("Spawners")] 
         public CharacterSpawner[] Spawners;
+        public Transform[] DestroyAreas;
 
         private void Update()
         {
@@ -39,7 +40,7 @@ namespace RailwayStationSample
         {
             for (int i = 0; i < DecreaseCount; i++)
             {
-                Character.ActiveCharacters.GetRandomElement().SendToDestroyArea();
+                Character.ActiveCharacters.GetRandomElement().SendToDestroyArea(DestroyAreas.GetRandomElement().position);
             }
         }
     }

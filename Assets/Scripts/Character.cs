@@ -17,7 +17,6 @@ namespace RailwayStationSample
         
         [Header("Components")]
         public NavMeshAgent Agent;
-        public Transform[] DestroyAreas;
         
         [Header("Target")]
         public Anchor TargetAnchor;
@@ -64,7 +63,12 @@ namespace RailwayStationSample
             if (IsFinished())
             {
                 _cooldownTime -= Time.deltaTime;
-                TargetAnchor?.Raise(this);
+
+                if (TargetAnchor != null && Vector3.Distance(transform.position, TargetAnchor.transform.position) < 2f * Agent.stoppingDistance)
+                {
+                    TargetAnchor?.Raise(this);
+                }
+                
                 TargetAnchor = null;
             }
 
@@ -83,26 +87,16 @@ namespace RailwayStationSample
         private void SetTargetAnchor(Anchor targetAnchor)
         {
             TargetAnchor = targetAnchor;
-
-            try
-            {
-                Agent.SetDestination(TargetAnchor.transform.position);
-            }
-            catch (Exception e)
-            {
-                SetRandomTargetAnchor();
-            }
+            Agent.SetDestination(TargetAnchor.transform.position);
         }
 
         [ContextMenu("Send to Destroy Area")]
-        public void SendToDestroyArea()
+        public void SendToDestroyArea(Vector3 targetPosition)
         {
             _isActive = false;
             ActiveCharacters.Remove(this);
-
-            Transform randomDestroyArea = DestroyAreas[Random.Range(0, DestroyAreas.Length - 1)];
-
-            Agent.SetDestination(randomDestroyArea.position);
+            
+            Agent.SetDestination(targetPosition);
         }
 
         public void Destroy()
@@ -112,6 +106,6 @@ namespace RailwayStationSample
             AllCharacters.Remove(this);
         }
 
-        private bool IsFinished() => !Agent.hasPath || Agent.hasPath && Agent.remainingDistance <= Agent.stoppingDistance + 0.1f;
+        private bool IsFinished() => Agent.hasPath && Agent.remainingDistance <= Agent.stoppingDistance + 0.1f;
     }
 }

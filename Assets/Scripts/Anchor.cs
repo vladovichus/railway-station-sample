@@ -41,7 +41,7 @@ namespace RailwayStationSample
         {
             if (!useWeights)
             {
-                return ActiveAnchors[Random.Range(0, ActiveAnchors.Count - 1)];
+                return ActiveAnchors[Random.Range(0, ActiveAnchors.Count)];
             }
 
             float weightsSum = ActiveAnchors.Select(x => x.Weight).Sum();
