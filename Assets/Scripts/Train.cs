@@ -58,7 +58,7 @@ namespace RailwayStationSample
 
                     break;
                 case TrainMovingState.MoveIn:
-                    TrainObject.transform.localPosition = new Vector3(0, 0, Mathf.Lerp(MaxZ, MinZ, _currentStateTime * _currentStateTime / MoveInDuration));
+                    TrainObject.transform.localPosition = new Vector3(0, 0, Mathf.Lerp(MaxZ, MinZ, (_currentStateTime / MoveInDuration) * (_currentStateTime / MoveInDuration)));
                     TrainObject.SetActive(true);
 
                     if (_currentStateTime <= 0)
@@ -74,7 +74,8 @@ namespace RailwayStationSample
                     
                     break;
                 case TrainMovingState.MoveOut:
-                    TrainObject.transform.localPosition = new Vector3(0, 0, Mathf.Lerp(MinZ, MaxZ, _currentStateTime * _currentStateTime / MoveInDuration));
+                    float t = _currentStateTime / MoveOutDuration;
+                    TrainObject.transform.localPosition = new Vector3(0, 0, Mathf.Lerp(MinZ, MaxZ, (_currentStateTime / MoveOutDuration) * (_currentStateTime / MoveOutDuration)));
                     TrainObject.SetActive(true);
 
                     if (_currentStateTime <= 0)
