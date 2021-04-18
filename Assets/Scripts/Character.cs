@@ -60,18 +60,18 @@ namespace RailwayStationSample
                 
                 return;
             }
-
-            if (_cooldownTime <= 0 || TargetAnchor != null && !TargetAnchor.enabled)
-            {
-                _cooldownTime = Random.Range(MinChangeTargetWaitingDuration, MaxChangeTargetWaitingDuration);
-                SetRandomTargetAnchor();
-            }
             
             if (IsFinished())
             {
                 _cooldownTime -= Time.deltaTime;
                 TargetAnchor?.Raise(this);
                 TargetAnchor = null;
+            }
+
+            if (_cooldownTime <= 0 || TargetAnchor != null && !TargetAnchor.enabled)
+            {
+                _cooldownTime = Random.Range(MinChangeTargetWaitingDuration, MaxChangeTargetWaitingDuration);
+                SetRandomTargetAnchor();
             }
         }
 
@@ -84,7 +84,14 @@ namespace RailwayStationSample
         {
             TargetAnchor = targetAnchor;
 
-            Agent.SetDestination(TargetAnchor.transform.position);
+            try
+            {
+                Agent.SetDestination(TargetAnchor.transform.position);
+            }
+            catch (Exception e)
+            {
+                SetRandomTargetAnchor();
+            }
         }
 
         [ContextMenu("Send to Destroy Area")]
@@ -98,6 +105,13 @@ namespace RailwayStationSample
             Agent.SetDestination(randomDestroyArea.position);
         }
 
-        private bool IsFinished() => !Agent.hasPath || Agent.hasPath && Agent.remainingDistance <= Agent.stoppingDistance + 1f;
+        public void Destroy()
+        {
+            Destroy(gameObject);
+            ActiveCharacters.Remove(this);
+            AllCharacters.Remove(this);
+        }
+
+        private bool IsFinished() => !Agent.hasPath || Agent.hasPath && Agent.remainingDistance <= Agent.stoppingDistance + 0.1f;
     }
 }

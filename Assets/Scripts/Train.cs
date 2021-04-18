@@ -11,7 +11,6 @@ namespace RailwayStationSample
         public int MaxPassengers = 20;
         
         [Header("Settings")] 
-        public Train OtherTrain;
         public TrainMovingState State = TrainMovingState.Hidden;
         public float MinZ = -30f;
         public float MaxZ = 0f;
@@ -19,6 +18,7 @@ namespace RailwayStationSample
         [Header("Objects")]
         public GameObject TrainObject;
         public TMP_Text CountText;
+        public Anchor[] EnterPoints;
 
         [Header("State Durations")] 
         public float MoveInDuration = 4f;
@@ -39,11 +39,17 @@ namespace RailwayStationSample
         {
             TrainObject = GetComponentInChildren<Renderer>().transform.parent.gameObject;
             CountText = GetComponentInChildren<TMP_Text>();
+            EnterPoints = GetComponentsInChildren<Anchor>();
         }
 
         private void Update()
         {
             _currentStateTime -= Time.deltaTime;
+
+            foreach (var enterPoint in EnterPoints)
+            {
+                enterPoint.enabled = State == TrainMovingState.Waiting;
+            }
             
             switch (State)
             {
@@ -121,6 +127,7 @@ namespace RailwayStationSample
         [ContextMenu("Move in")]
         public void MoveIn()
         {
+            gameObject.SetActive(true);
             State = TrainMovingState.MoveIn;
             _currentStateTime = MoveInDuration;
         }
@@ -140,6 +147,11 @@ namespace RailwayStationSample
             {
                 MoveOut();
             }
+        }
+
+        public void ResetPassengers()
+        {
+            Passengers = 0;
         }
         
         public enum TrainMovingState
