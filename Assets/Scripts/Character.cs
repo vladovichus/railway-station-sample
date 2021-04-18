@@ -8,8 +8,8 @@ namespace RailwayStationSample
     public class Character : MonoBehaviour
     {
         [Header("Settings")]
-        public float MinChangeTargetWaitingDuration = 3f;
-        public float MaxChangeTargetWaitingDuration = 7f;
+        public float MinChangeTargetWaitingDuration = 1f;
+        public float MaxChangeTargetWaitingDuration = 5f;
         
         [Header("Components")]
         public NavMeshAgent Agent;
@@ -31,6 +31,11 @@ namespace RailwayStationSample
 
         private void Update()
         {
+            if (IsFinished())
+            {
+                _cooldownTime -= Time.deltaTime;
+            }
+
             if (_cooldownTime <= 0)
             {
                 _cooldownTime = Random.Range(MinChangeTargetWaitingDuration, MaxChangeTargetWaitingDuration);
@@ -49,5 +54,7 @@ namespace RailwayStationSample
 
             Agent.SetDestination(TargetAnchor.transform.position);
         }
+
+        private bool IsFinished() => !Agent.hasPath || Agent.hasPath && Agent.remainingDistance <= Agent.stoppingDistance + 1f;
     }
 }

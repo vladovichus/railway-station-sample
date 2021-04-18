@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterPrefab: {fileID: 2021830846}
-  MinSpawnCount: 1
-  MaxSpawnCount: 5
+  MinSpawnCount: 10
+  MaxSpawnCount: 20
 --- !u!4 &42849805
 Transform:
   m_ObjectHideFlags: 0
@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 344717342}
   - component: {fileID: 344717341}
   - component: {fileID: 344717345}
+  - component: {fileID: 344717346}
   m_Layer: 0
   m_Name: Anchor (Shop Big)
   m_TagString: Untagged
@@ -279,6 +280,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 3
+--- !u!208 &344717346
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344717340}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &428595336
 GameObject:
   m_ObjectHideFlags: 0
@@ -292,6 +309,7 @@ GameObject:
   - component: {fileID: 428595339}
   - component: {fileID: 428595338}
   - component: {fileID: 428595341}
+  - component: {fileID: 428595342}
   m_Layer: 0
   m_Name: Anchor (Stand 2)
   m_TagString: Untagged
@@ -388,6 +406,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 1
+--- !u!208 &428595342
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428595336}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &604922903
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +435,7 @@ GameObject:
   - component: {fileID: 604922906}
   - component: {fileID: 604922905}
   - component: {fileID: 604922908}
+  - component: {fileID: 604922909}
   m_Layer: 0
   m_Name: Anchor (Shop Small 1)
   m_TagString: Untagged
@@ -497,6 +532,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 2
+--- !u!208 &604922909
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604922903}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &633112241
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +561,7 @@ GameObject:
   - component: {fileID: 633112244}
   - component: {fileID: 633112243}
   - component: {fileID: 633112246}
+  - component: {fileID: 633112247}
   m_Layer: 0
   m_Name: Anchor (Shop Small 2)
   m_TagString: Untagged
@@ -606,6 +658,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 2
+--- !u!208 &633112247
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633112241}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &653260035
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,6 +772,7 @@ GameObject:
   - component: {fileID: 788235858}
   - component: {fileID: 788235857}
   - component: {fileID: 788235860}
+  - component: {fileID: 788235861}
   m_Layer: 0
   m_Name: Anchor (Stand 1)
   m_TagString: Untagged
@@ -800,6 +869,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 1
+--- !u!208 &788235861
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788235855}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &793078656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,6 +1157,7 @@ GameObject:
   - component: {fileID: 1142829285}
   - component: {fileID: 1142829284}
   - component: {fileID: 1142829287}
+  - component: {fileID: 1142829288}
   m_Layer: 0
   m_Name: Anchor (Shop Small 3)
   m_TagString: Untagged
@@ -1168,6 +1254,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 2
+--- !u!208 &1142829288
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1142829282}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1403518380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1434,6 +1536,7 @@ GameObject:
   - component: {fileID: 1979436325}
   - component: {fileID: 1979436324}
   - component: {fileID: 1979436327}
+  - component: {fileID: 1979436328}
   m_Layer: 0
   m_Name: Anchor (Stand 3)
   m_TagString: Untagged
@@ -1530,6 +1633,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Weight: 1
+--- !u!208 &1979436328
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979436322}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &2021830846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,6 +1695,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0127db1923f6472786c03132c986fe1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MinChangeTargetWaitingDuration: 1
+  MaxChangeTargetWaitingDuration: 5
   Agent: {fileID: 2021830849}
   TargetAnchor: {fileID: 0}
 --- !u!195 &2021830849
