@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: dc918e11498bbe340aa0ce7fa06acf6d, type: 2}
 --- !u!1 &42849803
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,9 +674,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6561966047941904820, guid: 71dda10251dc86242b2e36c78c39f5ae, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561966048170449699, guid: 71dda10251dc86242b2e36c78c39f5ae, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6561966048409614490, guid: 71dda10251dc86242b2e36c78c39f5ae, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 6561966049574113593, guid: 71dda10251dc86242b2e36c78c39f5ae, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4d591780f15e32b4c8d4d7c74f439dac, type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 6561966049574113594, guid: 71dda10251dc86242b2e36c78c39f5ae, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 119
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6561966049574113592, guid: 71dda10251dc86242b2e36c78c39f5ae, type: 3}
+    - {fileID: 6561966048409614488, guid: 71dda10251dc86242b2e36c78c39f5ae, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 71dda10251dc86242b2e36c78c39f5ae, type: 3}
